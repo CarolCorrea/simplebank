@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+section>header {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.center {
+	text-align: center;
+}

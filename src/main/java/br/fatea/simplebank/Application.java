@@ -25,12 +25,12 @@ public class Application implements WebApplicationInitializer {
 		//recebendo o erro: Could not open ServletContext resource [/WEB-INF/appServelet-servlet.xml
 		
 		appServlet.setLoadOnStartup(1);
-		appServlet.addMapping("/*");
+		appServlet.addMapping("/api/*", "/app/*");
 		
 		servletContext.addListener(new ContextLoaderListener(applicationContext));
 		
 		FilterRegistration.Dynamic filter = servletContext.addFilter("openEntityManagerInViewFilter", buildOpenEntityManagerFilter()); 
-		filter.addMappingForUrlPatterns(getDispatcherTypes(), false, "/");
+		filter.addMappingForUrlPatterns(getDispatcherTypes(), false, "/api/*", "/app/*");
 	}
 	
 	private AnnotationConfigWebApplicationContext buildApplicationContext(){
